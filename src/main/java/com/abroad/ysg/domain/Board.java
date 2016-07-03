@@ -18,10 +18,10 @@ public class Board {
 	@Column(name = "BOARD_CONTENT", nullable = false)
 	private String content;		// 내용
 	
-	@Column
+	@Column(name = "COUNT")
 	private int count;	// 조회 수
 	
-	@Column
+	@Column(name = "BOARD_CREATE_DATE")
 	private Date create_date;	//생성 날짜
 
 	// Getter, Setter
