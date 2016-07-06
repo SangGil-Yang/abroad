@@ -16,20 +16,19 @@ import java.util.List;
 public class BoardController {
 
 	@Autowired 
-	BoardService boardService;
+	BoardService boardService;	
 	
-//	@RequestMapping(value = "/boards/new", method = RequestMethod.GET)
-//	public String createBoard()
-//	{
-//		return "boards/boardList";
-//	}
-	
-	@RequestMapping(value = "/boards", method = RequestMethod.GET)
-	public String list(Model model)
+	@RequestMapping(value = "/boards/boardList", method = RequestMethod.GET)
+	public String boardList(Model model)
 	{
 		List<Board> boads = boardService.findBoard();
 		model.addAttribute("boardlist", boads);
 		return "boards/boardList";
 	}
 	
+	@RequestMapping(value = "/boards/boardWrite")
+	public String boardWrite(Model model)
+	{
+		return "boards/boardWrite";
+	}
 }
