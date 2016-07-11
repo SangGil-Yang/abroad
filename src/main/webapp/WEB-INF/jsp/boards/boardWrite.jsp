@@ -15,11 +15,11 @@
             <tbody>
                 <tr>
                     <th scope="row">제목</th>
-                    <td><input type="text" id="TITLE" name="TITLE" class="wdp_90"></input></td>
+                    <td><input type="text" id="title" name="title" class="wdp_90"></input></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="view_text">
-                        <textarea rows="20" cols="100" title="내용" id="CONTENTS" name="CONTENTS"></textarea>
+                        <textarea rows="20" cols="100" title="내용" id="content" name="content"></textarea>
                     </td>
                 </tr>
             </tbody>
@@ -32,18 +32,30 @@
     <%@ include file="/WEB-INF/include/body.jsp" %> 
     <script type="text/javascript">
         $(document).ready(function(){
-        	$("#list").on("click", function(e){
+        	$("#list").on("click", function(e){  // 목록으로
         		e.preventDefault();
-        		fn_openBoardList();
+        		fn_boardList();
+        	});
+        	
+        	$("#write").on("click", function(e){  // 작성하기
+        		e.preventDefault();
+        		fn_insertBoard();
         	});
                      
         });
         
-        function fn_openBoardList(){
+        function fn_boardList(){
         	var comSubmit = new ComSubmit();
-        	comSubmit.setUrl("<c:url value = '/boards/boardList' />")
-        	comSubmit.sumbit();
+        	comSubmit.setUrl("<c:url value='/boards/boardList.do'/>");
+        	comSubmit.submit();
         }
+        
+        function fn_insertBoard(){
+        	var comSubmit = new ComSubmit("frm");
+        	comSubmit.setUrl("<c:url value='/boards/insertBoard.do'/>");
+        	comSubmit.submit();
+        }
+        
     </script>
 </body>
 </html>

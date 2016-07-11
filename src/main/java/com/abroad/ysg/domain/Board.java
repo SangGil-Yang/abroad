@@ -9,13 +9,13 @@ public class Board {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "BOARD_ID", nullable = false)
+	@Column(name = "BOARD_ID")
 	private Long id;	// 기본키 값
 	
-	@Column(name = "BOARD_TITLE", nullable = false)
+	@Column(name = "BOARD_TITLE")
 	private String title;	// 제목
 	
-	@Column(name = "BOARD_CONTENT", nullable = false)
+	@Column(name = "BOARD_CONTENT")
 	private String content;		// 내용
 	
 	@Column(name = "COUNT")

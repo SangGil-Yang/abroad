@@ -6,7 +6,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	<tx:annotation-driven></tx:annotation-driven>
     <context:component-scan base-package="com.abroad.ysg.service, com.abroad.ysg.repository"/>
 
     <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource">

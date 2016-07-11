@@ -14,7 +14,14 @@ public class BoardRepository {
 	
 	public void save(Board board)
 	{
-		em.persist(board);
+		if(board.getId() == null)
+		{
+			em.persist(board);
+		}
+		else
+		{
+			em.merge(board);
+		}
 	}
 	
 	public Board fineOne(Long id)
@@ -25,6 +32,11 @@ public class BoardRepository {
 	public List<Board> findAll()
 	{
 		return em.createQuery("select b from Board b", Board.class).getResultList();
+	}
+	
+	public void remove(Board board)
+	{
+		em.remove(board);
 	}
 	
 }

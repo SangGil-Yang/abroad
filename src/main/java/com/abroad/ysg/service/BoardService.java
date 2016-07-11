@@ -14,6 +14,10 @@ public class BoardService {
 	@Autowired
 	BoardRepository boardRepository;
 	
+	public void removeBoard(Board board)
+	{
+		boardRepository.remove(board);
+	}
 	public void saveBoard(Board board)
 	{
 		boardRepository.save(board);
