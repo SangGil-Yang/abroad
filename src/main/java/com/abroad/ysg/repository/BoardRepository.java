@@ -36,7 +36,8 @@ public class BoardRepository {
 	
 	public void remove(Board board)
 	{
-		em.remove(board);
+		Board b = em.getReference(Board.class, board.getId());
+		em.remove(b);
 	}
 	
 }
