@@ -22,7 +22,7 @@ public class Board {
 	private int count;	// 조회 수
 	
 	@Column(name = "BOARD_CREATE_DATE")
-	private Date create_date;	//생성 날짜
+	private Date board_create_date;	//생성 날짜
 
 	// Getter, Setter
 	public Long getId() {
@@ -58,11 +58,11 @@ public class Board {
 	}
 
 	public Date getCreate_date() {
-		return create_date;
+		return board_create_date;
 	}
 
-	public void setCreate_date(Date create_date) {
-		this.create_date = create_date;
+	public void setCreate_date(Date board_create_date) {
+		this.board_create_date = board_create_date;
 	}
 	
 

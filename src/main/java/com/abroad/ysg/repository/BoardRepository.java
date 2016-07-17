@@ -1,9 +1,12 @@
 package com.abroad.ysg.repository;
 
 import com.abroad.ysg.domain.Board;
+import com.abroad.ysg.domain.FileBoard;
+
 import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 import java.util.List;
 
 @Repository
@@ -38,6 +41,11 @@ public class BoardRepository {
 	{
 		Board b = em.getReference(Board.class, board.getId());
 		em.remove(b);
+	}
+	
+	public void insertFile(FileBoard fileBoard) throws Exception
+	{
+		em.persist(fileBoard);
 	}
 	
 }

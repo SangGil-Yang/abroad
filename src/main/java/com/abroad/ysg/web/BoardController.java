@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class BoardController {
 
@@ -35,9 +37,9 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/boards/insertBoard.do")
-	public String insertBoard(@ModelAttribute("board") Board board, Model model)
+	public String insertBoard(@ModelAttribute("board") Board board, Model model, HttpServletRequest request) throws Exception
 	{
-		boardService.saveBoard(board);
+		boardService.saveBoard(board, request);
 		return "redirect:/boards/boardList.do";
 	}
 	
@@ -60,9 +62,9 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/boards/boardUpdate.do")
-	public String boardUpdate(@ModelAttribute("board") Board board, Model model)
+	public String boardUpdate(@ModelAttribute("board") Board board, Model model, HttpServletRequest request) throws Exception
 	{
-		boardService.saveBoard(board);
+		boardService.saveBoard(board, request);
 		return "redirect:/boards/boardList.do";
 	}
 	

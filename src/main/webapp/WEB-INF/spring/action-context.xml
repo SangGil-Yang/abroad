@@ -30,6 +30,17 @@
 	
 	
 	
-	
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <beans:property name="maxUploadSize">
+            <beans:value>100000</beans:value>
+        </beans:property>
+        <beans:property name="uploadTempDir" ref="uploadDirResource" />
+    </beans:bean>
+    
+    <beans:bean id="uploadDirResource" class="org.springframework.core.io.FileSystemResource">
+        <beans:constructor-arg>
+            <beans:value>c:/dev/file</beans:value>
+        </beans:constructor-arg>
+    </beans:bean>
 	
 </beans:beans>
