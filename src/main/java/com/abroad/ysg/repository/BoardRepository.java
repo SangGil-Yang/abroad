@@ -47,5 +47,12 @@ public class BoardRepository {
 	{
 		em.persist(fileBoard);
 	}
+
+	public List<FileBoard> findfileAll(Long boardId) 
+	{
+		String filequery = "select fb from FileBoard fb join fetch fb.board b where b.id = " + boardId.toString();
+		return em.createQuery(filequery, FileBoard.class).getResultList();
+		
+	}
 	
 }

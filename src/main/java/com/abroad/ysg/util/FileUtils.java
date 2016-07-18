@@ -50,7 +50,7 @@ public class FileUtils {
 				multipartFile.transferTo(file);
 				
 				fileBoard = new FileBoard();
-				fileBoard.setBoard_id(board.getId());
+				fileBoard.setBoard(board);
 				fileBoard.setOrigin_file(originalFileName);
 				fileBoard.setStored_file(storedFileName);
 				fileBoard.setFile_size(multipartFile.getSize());

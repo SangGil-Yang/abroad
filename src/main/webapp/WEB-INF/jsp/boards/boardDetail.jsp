@@ -33,6 +33,16 @@
             <tr>
                 <td colspan="4">${boardlist.content }</td>
             </tr>
+            <tr>
+            	<th scope="row">첨부파일</th>
+            	<td colspan="3">
+            		<c:forEach var="row" items="${filelist }">
+            			<input type="hidden" id="id" value="${row.id}">
+            			<a href="#this" name="file">${row.origin_file }</a>
+            			(${row.file_size }kb)
+            		</c:forEach>
+            	</td>
+            </tr>
 		</tbody>
 	</table>
 	
@@ -50,6 +60,10 @@
             $("#update").on("click", function(e){
                 e.preventDefault();
                 fn_openboardUpdate();
+            });
+            
+            $("a[name='file']").on("click", function(e){  // 파일 이름
+            	e.preventDefault();
             });
         });
          

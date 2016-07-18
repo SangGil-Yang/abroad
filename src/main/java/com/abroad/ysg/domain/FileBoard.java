@@ -12,8 +12,9 @@ public class FileBoard {
 	@Column(name = "FILE_ID")
 	private Long id;
 	
-	@Column(name = "BOARD_ID")
-	private Long board_id;
+	@ManyToOne
+	@JoinColumn(name = "BOARD_ID")
+	private Board board;
 	
 	@Column(name = "ORIGIN_FILE")
 	private String origin_file;
@@ -37,12 +38,12 @@ public class FileBoard {
 		this.id = id;
 	}
 
-	public Long getBoard_id() {
-		return board_id;
+	public Board getBoard() {
+		return board;
 	}
 
-	public void setBoard_id(Long board_id) {
-		this.board_id = board_id;
+	public void setBoard(Board board) {
+		this.board = board;
 	}
 
 	public String getOrigin_file() {

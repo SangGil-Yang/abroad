@@ -2,6 +2,7 @@
 package com.abroad.ysg.web;
 
 import com.abroad.ysg.domain.Board;
+import com.abroad.ysg.domain.FileBoard;
 import com.abroad.ysg.service.BoardService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,9 @@ public class BoardController {
 	{
 		Long BoardId = board.getId();
 		Board boards = boardService.findOne(BoardId);
+		List<FileBoard> fileboard = boardService.findfileAll(BoardId);
 		model.addAttribute("boardlist", boards);
+		model.addAttribute("filelist", fileboard);
 		return "/boards/boardDetail";
 	}
 	

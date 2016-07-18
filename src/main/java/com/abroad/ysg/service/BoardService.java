@@ -27,6 +27,7 @@ public class BoardService {
 	{
 		boardRepository.remove(board);
 	}
+	
 	public void saveBoard(Board board, HttpServletRequest request) throws Exception
 	{
 		boardRepository.save(board);
@@ -46,5 +47,10 @@ public class BoardService {
 	public Board findOne(Long BoardId)
 	{
 		return boardRepository.fineOne(BoardId);
+	}
+
+	public List<FileBoard> findfileAll(Long BoardId) 
+	{
+		return boardRepository.findfileAll(BoardId);
 	}
 }
