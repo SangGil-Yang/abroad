@@ -1,7 +1,7 @@
 package com.abroad.ysg.domain;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name="BOARD")
@@ -17,12 +17,12 @@ public class Board {
 	
 	@Column(name = "BOARD_CONTENT")
 	private String content;		// 내용
-	
+
 	@Column(name = "COUNT")
 	private int count;	// 조회 수
 	
-	@Column(name = "BOARD_CREATE_DATE")
-	private Date board_create_date;	//생성 날짜
+	@Column(name = "BOARD_CREATE_DATE", nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
+	private Timestamp board_create_date;	//생성 날짜
 
 	// Getter, Setter
 	public Long getId() {
@@ -57,11 +57,11 @@ public class Board {
 		this.count = count;
 	}
 
-	public Date getCreate_date() {
+	public Timestamp getBoard_create_date() {
 		return board_create_date;
 	}
 
-	public void setCreate_date(Date board_create_date) {
+	public void setBoard_create_date(Timestamp board_create_date) {
 		this.board_create_date = board_create_date;
 	}
 	

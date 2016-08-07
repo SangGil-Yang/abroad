@@ -24,7 +24,7 @@
 <!--                 <th scope="row">작성자</th> -->
 <%--                 <td>${boardlist.CREA_ID }</td> --%>
                 <th scope="row">작성시간</th>
-                <td>${boardlist.create_date }</td>
+                <td>${boardlist.board_create_date }</td>
             </tr>
             <tr>
                 <th scope="row">제목</th>
@@ -57,13 +57,14 @@
                 fn_boardList();
             });
              
-            $("#update").on("click", function(e){
+            $("#update").on("click", function(e){  //수정으로 버튼
                 e.preventDefault();
                 fn_openboardUpdate();
             });
             
             $("a[name='file']").on("click", function(e){  // 파일 이름
             	e.preventDefault();
+            	fn_downloadFile($(this));
             });
         });
          
@@ -80,6 +81,16 @@
             comSubmit.addParam("id", idx);
             comSubmit.submit();
         }
+        
+        function fn_downloadFile(obj){
+        	var idx = obj.parent().find("#id").val();
+            var comSubmit = new ComSubmit();
+            comSubmit.setUrl("<c:url value='/boards/downloadFile.do' />");
+            comSubmit.addParam("id", idx);
+            comSubmit.submit();
+        }
+        
+        
     </script>
 </body>
 </html>

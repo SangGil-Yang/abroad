@@ -4,26 +4,13 @@
 <html>
 <head>
 
-<link rel="stylesheet" 
-href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
-<link rel="stylesheet" 
-href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
 <title>first</title>
 <%@ include file="/WEB-INF/include/header.jsp" %>
+	<link rel="stylesheet" media="screen" href="<c:url value="/resources/bootstrap/css/bootstrap.min.css"/>">
 </head>
 <body>
 <h2>게시판 목록</h2>
-	<table style="border:1px solid #ccc">
-    	<colgroup>
-        	<col width="10%"/>
-        	<col width="*"/>
-        	<col width="15%"/>
-        	<col width="20%"/>
-    	</colgroup>
+	<table class="table table-striped">
     	<thead>
         	<tr>
             	<th scope="col">글번호</th>
@@ -44,7 +31,7 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.cs
                         		<input type="hidden" id="id" value="${row.id }">
                         	<td>${row.content }</td>
                         	<td>${row.count }</td>
-                        	<td>${row.create_date }</td>
+                        	<td>${row.board_create_date }</td>
                     	</tr>
                 	</c:forEach>
             	</c:when>
@@ -86,5 +73,7 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.cs
 			comSubmit.submit();
 		}
 	</script>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/resources/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

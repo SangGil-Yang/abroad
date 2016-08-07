@@ -13,8 +13,8 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.abroad.ysg.domain.Board;
 import com.abroad.ysg.domain.FileBoard;
 
-@Component("fileUtils")
-public class FileUtils {
+@Component("fileUtil")
+public class FileUtil {
 	private static final String filePath = "C:\\dev\\file\\";
 	
 

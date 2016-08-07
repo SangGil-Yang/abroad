@@ -1,7 +1,14 @@
 package com.abroad.ysg.domain;
 
-import javax.persistence.*;
-import java.util.Date;
+import java.sql.Timestamp;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="FILEBOARD")
@@ -25,8 +32,8 @@ public class FileBoard {
 	@Column(name = "FILE_SIZE")
 	private Long file_size;
 	
-	@Column(name = "FILE_CREATE_DATE")
-	private Date file_create_date;
+	@Column(name = "FILE_CREATE_DATE", nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
+	private Timestamp file_create_date;
 
 	
 	
@@ -70,11 +77,11 @@ public class FileBoard {
 		this.file_size = file_size;
 	}
 
-	public Date getFile_create_date() {
+	public Timestamp getFile_create_date() {
 		return file_create_date;
 	}
 
-	public void setFile_create_date(Date file_create_date) {
+	public void setFile_create_date(Timestamp file_create_date) {
 		this.file_create_date = file_create_date;
 	}
 	

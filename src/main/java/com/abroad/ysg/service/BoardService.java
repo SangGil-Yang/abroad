@@ -11,7 +11,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-import com.abroad.ysg.util.FileUtils;
+import com.abroad.ysg.util.FileUtil;
 
 @Service
 @Transactional
@@ -21,7 +21,7 @@ public class BoardService {
 	BoardRepository boardRepository;
 	
 //	@Resource(name = "fileUtils")
-	private FileUtils fileUtils = new FileUtils();
+	private FileUtil fileUtil = new FileUtil();
 	
 	public void removeBoard(Board board)
 	{
@@ -32,7 +32,7 @@ public class BoardService {
 	{
 		boardRepository.save(board);
 		
-		List<FileBoard> fileBoards = fileUtils.parseInsertFileInfo(board, request);
+		List<FileBoard> fileBoards = fileUtil.parseInsertFileInfo(board, request);
 		for(int i=0, size=fileBoards.size(); i<size; i++)
 		{
 			boardRepository.insertFile(fileBoards.get(i));
@@ -52,5 +52,15 @@ public class BoardService {
 	public List<FileBoard> findfileAll(Long BoardId) 
 	{
 		return boardRepository.findfileAll(BoardId);
+	}
+
+	public FileBoard findfileone(Long fileBoardId) 
+	{
+		return boardRepository.findfileone(fileBoardId);
+	}
+
+	public void removeFile(Board board) 
+	{
+		boardRepository.deleteFile(board.getId());
 	}
 }
